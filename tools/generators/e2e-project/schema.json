@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "e2e-project",
+  "title": "Create e2e project",
+  "description": "Create e2e project using Cypress for Nx",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Testing Project Name",
+      "x-prompt": "What name would you like to use for the application?",
+      "pattern": "^[a-zA-Z].*$",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "projectUrl": {
+      "type": "string",
+      "description": "Where cypress should start testing",
+      "alias": "url",
+      "x-prompt": "Where url your application starts?",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      }
+    }
+  },
+  "required": ["name", "projectUrl"]
+}
